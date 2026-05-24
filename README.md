@@ -212,6 +212,19 @@ Database:
 - PostgreSQL
 
 ---
+# Screenshots
+
+## Dashboard
+
+![Dashboard](./public/screenshots/dashboard.png)
+
+---
+
+## Reservation Checkout
+
+![Reservation](./public/screenshots/reservation.png)
+
+---
 
 # Author
 
