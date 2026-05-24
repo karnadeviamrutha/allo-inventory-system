@@ -1,23 +1,23 @@
 # Allo Inventory Reservation System
 
-A full-stack smart inventory reservation system built using Next.js, Prisma, PostgreSQL, and Tailwind CSS.
+A full-stack Smart Inventory Reservation System built using Next.js, Prisma, PostgreSQL, and Tailwind CSS.
 
 ---
 
-## Features
+# Features
 
 - Product inventory management
 - Warehouse inventory tracking
-- Real-time reservation system
+- Real-time inventory reservations
 - Reservation confirmation and cancellation
 - Automatic stock updates
-- Expiry countdown timer
-- Modern premium UI dashboard
-- Concurrency-safe inventory handling
+- Reservation expiry countdown
+- Premium responsive dashboard UI
+- Concurrency-safe reservation handling
 
 ---
 
-## Tech Stack
+# Tech Stack
 
 - Next.js 16
 - TypeScript
@@ -27,9 +27,13 @@ A full-stack smart inventory reservation system built using Next.js, Prisma, Pos
 
 ---
 
-## Setup Instructions
-
-Install dependencies:
+# Project Structure
 
 ```bash
-npm install
+src/
+ ├── app/
+ │   ├── api/
+ │   ├── reservation/
+ │   └── page.tsx
+ ├── lib/
+prisma/
