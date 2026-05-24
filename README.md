@@ -1,36 +1,231 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Allo Inventory Reservation System
 
-## Getting Started
+A full-stack Smart Inventory Reservation System built using Next.js, Prisma, PostgreSQL, and Tailwind CSS.
 
-First, run the development server:
+---
+
+# Features
+
+- Product inventory management
+- Warehouse inventory tracking
+- Real-time inventory reservations
+- Reservation confirmation and cancellation
+- Automatic stock updates
+- Reservation expiry countdown
+- Premium responsive dashboard UI
+- Concurrency-safe reservation handling
+
+---
+
+# Tech Stack
+
+- Next.js 16
+- TypeScript
+- Prisma ORM
+- PostgreSQL
+- Tailwind CSS
+
+---
+
+# Project Structure
+
+```bash
+src/
+ ├── app/
+ │   ├── api/
+ │   ├── reservation/
+ │   └── page.tsx
+ ├── lib/
+prisma/
+```
+
+---
+
+# Setup Instructions
+
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/karnadeviamrutha/allo-inventory-system.git
+```
+
+---
+
+## 2. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 3. Create Environment File
+
+Create `.env`
+
+```env
+DATABASE_URL=your_database_url
+```
+
+---
+
+## 4. Run Prisma
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+---
+
+## 5. Start Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# Database Models
 
-To learn more about Next.js, take a look at the following resources:
+## Product
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Stores product details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Warehouse
 
-## Deploy on Vercel
+Stores warehouse information.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Inventory
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tracks stock quantity per warehouse.
+
+## Reservation
+
+Handles temporary stock reservations.
+
+---
+
+# Reservation Flow
+
+1. User reserves inventory
+2. Reservation gets created
+3. Reserved stock increases
+4. Countdown timer starts
+5. User can:
+   - Confirm reservation
+   - Cancel reservation
+6. Inventory updates automatically
+
+---
+
+# Available Stock Formula
+
+```text
+availableStock = totalQuantity - reservedQuantity
+```
+
+---
+
+# Concurrency Handling
+
+Prisma transactions are used to prevent overselling during simultaneous reservation requests.
+
+This ensures:
+
+- atomic updates
+- consistent stock values
+- safe concurrent reservations
+
+---
+
+# Reservation Expiry
+
+Expired reservations are automatically released and inventory stock is restored.
+
+The system uses lazy cleanup logic during reservation fetch operations.
+
+---
+
+# UI Features
+
+- Premium glassmorphism design
+- Responsive layout
+- Real-time countdown timer
+- Modern dashboard interface
+- Gradient premium styling
+
+---
+
+# API Endpoints
+
+## Products
+
+```http
+GET /api/products
+POST /api/products
+```
+
+---
+
+## Warehouses
+
+```http
+GET /api/warehouses
+POST /api/warehouses
+```
+
+---
+
+## Inventory
+
+```http
+GET /api/inventory
+POST /api/inventory
+```
+
+---
+
+## Reservations
+
+```http
+POST /api/reservations
+GET /api/reservations/[id]
+POST /api/reservations/[id]/confirm
+POST /api/reservations/[id]/release
+```
+
+---
+
+# Deployment
+
+Frontend:
+- Vercel
+
+Database:
+- PostgreSQL
+
+---
+# Screenshots
+
+## Dashboard
+
+![Dashboard](public/screenshots/dashboard.png)
+
+---
+
+## Reservation Checkout
+
+![Reservation](public/screenshots/reservation.png)
+
+---
+
+# Author
+
+KARNA DEVI AMRUTHA
