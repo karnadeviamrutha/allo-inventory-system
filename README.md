@@ -216,13 +216,13 @@ Database:
 
 ## Dashboard
 
-![Dashboard](./public/screenshots/dashboard.png)
+![Dashboard](public/screenshots/dashboard.png)
 
 ---
 
 ## Reservation Checkout
 
-![Reservation](./public/screenshots/reservation.png)
+![Reservation](public/screenshots/reservation.png)
 
 ---
 
